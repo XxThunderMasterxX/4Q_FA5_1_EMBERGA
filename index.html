@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Shape</title>
+</head>
+<body>
+<h1>SHAPE MAKER !!!</h1>
+<p>Enter a number:</p>
+<input type="text" id="userInput">
+<button onclick="doshapeplz()">Make go!</button>
+<p id="output"></p>
+
+<script>
+
+function isNumeric(value) {
+  return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
+function doshapeplz() {
+  var userInput = document.getElementById("userInput").value;
+  if (!isNumeric(userInput)) {
+    alert("Please enter a valid number.");
+    return;
+  }
+
+  var number = parseInt(userInput);
+
+  var output = document.getElementById("output");
+
+  output.innerHTML = "Number inputted: " + number + "<br><br>";
+
+
+  if (number % 2 === 1) {
+    for (var i = number; i >= 1; i--) {
+      for (var j = 1; j <= number; j++) {
+        output.innerHTML += i + " ";
+      }
+      output.innerHTML += "<br>";
+    }
+  } else {
+    var count = number;
+
+    for (var i = number; i >= 1; i--) {
+      for (var j = 1; j <= count; j++) {
+        output.innerHTML += i + " ";
+
+      }
+      count--;
+      output.innerHTML += "<br>";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
